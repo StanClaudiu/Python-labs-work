@@ -1,0 +1,18 @@
+def findFirstNumber(string) :
+    numbers = [numb for numb in range(0,10)]
+    min = 1000000000
+    for number in numbers :
+        if string.find(str(number)) >= 0 :
+            if min > string.find(str(number)) :
+                min = string.find(str(number))
+    return min
+
+def findFirst(string) : 
+    pos = findFirstNumber(string)
+    while '0' <= string[pos] <= '9' and pos < len(string) : #intentionat pus asa, se poate usor imbunatatii
+        pos += 1
+    else :
+        return string[findFirstNumber(string):pos] 
+
+
+print('The number is' + str(findFirst("abc100abc")))

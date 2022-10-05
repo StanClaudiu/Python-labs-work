@@ -1,0 +1,16 @@
+def findApp(string1,string2) :
+    if string1.find(string2) == -1 :
+        return "",0
+    occ = string1.find(string2)
+    return (string1[:occ] +"#" +string1[occ+1 : ],1)
+    
+def getNumberOcc(string1, string2) : 
+    counter = 0
+    string1 , teller = findApp(string1,string2)
+    while(teller != 0) :
+        counter += 1
+        string1,teller = findApp(string1,string2)
+    else :
+        return counter
+
+print(getNumberOcc("bunaababa","aba"))

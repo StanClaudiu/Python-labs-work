@@ -1,0 +1,22 @@
+
+def findCmmdc2Numbers(a,b) : 
+    if a == 0 and b == 0 :
+        return -1
+    elif b == 0 :
+        return a
+    return findCmmdc2Numbers(b,a % b)
+
+
+def findAllGcd() :
+    myList = input()
+    myList = "".join([number for number in myList if '0' <= number <= '9' or number == ','])
+    myList = myList.split(',')
+    myNumbers = []
+    for numberString in myList :
+        myNumbers.append(int(numberString))
+    myGcd = myNumbers[0]
+    for number in myNumbers : 
+        myGcd = findCmmdc2Numbers(myGcd,number)
+    return myGcd
+
+findAllGcd()

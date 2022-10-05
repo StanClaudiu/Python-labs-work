@@ -1,0 +1,4 @@
+def replaceCaps(string) : 
+    return "".join([ "_"+char if 'A' <= char <= 'Z' else char for char in string])[1:].lower()
+
+print(replaceCaps("BunaZiuaToataLumea"))    

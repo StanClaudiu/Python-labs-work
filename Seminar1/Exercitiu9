@@ -1,0 +1,15 @@
+def mostCommonLetter(string) : 
+    string = string.lower()
+    string = "".join([ char for char in string if 'a'  <= char <= 'z' ])
+    list_string = set(string)
+    max = -1
+    letter = -1
+    for char in list_string :
+        occ = string.count(char)
+        if occ > max :
+            max = occ
+            letter = char
+    return letter
+
+
+print(mostCommonLetter('Asadar am auzit ca doresti sa vorbesti cu mine? Oooooooooooookay! '))

@@ -1,0 +1,5 @@
+
+def countVowels(string) : 
+    return len([vowel for vowel in string if vowel in "aeiouAEIOU"])
+
+countVowels('Buna seara!')
