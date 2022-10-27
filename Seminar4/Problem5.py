@@ -1,12 +1,15 @@
 import os
 
 def verifyForTarget(path,target) :
+    if path[-10:].find(".") == -1 :
+        return False # deoarece am eu niste fisiere de optimizare pe macos ce par sa fie doar niste hashuri
     buffer = ""
     try:
-        fd = open(path)
+        fd = open(path,mode = "r")
         buffer = fd.read()
         fd.close()
     except:
+        print(path)
         print("Something went wrong in verifyTarget ! ")
     return buffer.find(target) >= 0
 
@@ -17,7 +20,7 @@ def algorithmForGivenProb(path,target):
     elif os.path.isdir(path):
         for(root,directory,files) in os.walk(path) :
          for file in files :
-             if verifyForTarget(file,target) :
+             if verifyForTarget(root + "/" + file,target) :
                 myFoundFiles.append(root + "/" + file)
         return myFoundFiles
     return verifyForTarget(path,target) # case for a file
